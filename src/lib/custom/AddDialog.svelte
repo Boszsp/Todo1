@@ -7,7 +7,7 @@
 	import Label from '$lib/components/ui/label/label.svelte';
 	import Input from '$lib/components/ui/input/input.svelte';
 	import { toast } from 'svelte-sonner';
-import Sun from 'lucide-svelte/icons/sun';
+	import Sun from 'lucide-svelte/icons/sun';
 	import Moon from 'lucide-svelte/icons/moon';
 	import { toggleMode } from 'mode-watcher';
 	let open = false;
@@ -19,8 +19,10 @@ import Sun from 'lucide-svelte/icons/sun';
 		try {
 			addHandler(taskVal);
 			toast.success('Add task success');
+			toast.warning('this function not avalible now');
 		} catch {
 			toast.error('Add task fail');
+			toast.warning('this function not avalible now');
 		}
 	};
 </script>

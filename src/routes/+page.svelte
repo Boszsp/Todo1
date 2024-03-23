@@ -13,7 +13,7 @@
 	import Separator from '$lib/components/ui/separator/separator.svelte';
 	import { writable } from 'svelte/store';
 	import { onMount } from 'svelte';
-	import { PUBLIC_API_URL } from '$env/static/public';
+	import { PUBLIC_INIT_VALUE } from '$env/static/public';
 	import LoadTodoCard from '$lib/custom/LoadTodoCard.svelte';
 	import * as Carousel from '$lib/components/ui/carousel/index.js';
 	import LocalTimeCalender from '$lib/custom/LocalTimeCalender.svelte';
@@ -23,13 +23,9 @@
 
 	onMount(() => {
 		setTimeout(() => {
-			itemsW.set([
-				{ id: 1, name: 'item1', checked: false },
-				{ id: 2, name: 'item2', checked: false },
-				{ id: 3, name: 'item3', checked: false },
-				{ id: 4, name: 'item4', checked: false }
-			]);
+			itemsW.set( JSON.parse(PUBLIC_INIT_VALUE));
 		}, 100);
+		console.log(PUBLIC_INIT_VALUE)
 	});
 	$: items = [...$itemsW];
 	const flipDurationMs = 300;
