@@ -1,4 +1,6 @@
-# create-svelte
+# Todo List
+<img width="1440" alt="image" src="https://github.com/Boszsp/TodoAppScript/assets/95701554/f62a09ae-639f-4571-af9e-61ec13ac7d89">
+
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
 
