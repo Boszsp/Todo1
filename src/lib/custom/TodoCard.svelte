@@ -27,7 +27,7 @@
 <Card>
 	<div class="m-2 mx-4 flex items-center gap-2">
 		<Checkbox bind:checked id={cid}></Checkbox>
-		<Label for={cid} class="text-md w-full">{title}</Label>
+		<Label class="text-md w-full">{title}</Label>
 		<Button on:click={copyToCliboard} class="self-end" variant="outline">Copy</Button>
     </div>
 </Card>
