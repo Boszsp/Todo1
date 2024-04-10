@@ -10,19 +10,43 @@
 	import Sun from 'lucide-svelte/icons/sun';
 	import Moon from 'lucide-svelte/icons/moon';
 	import { toggleMode } from 'mode-watcher';
+	import { writable } from 'svelte/store';
 	let open = false;
 	let taskVal = '';
 
-	export let addHandler = (newTask) => {};
+	export let tasks = writable([]);
+	export let setTodo = (todos) => {};
 	let submitHandler = (e) => {
 		open = false;
 		try {
-			addHandler(taskVal);
+			//addHandler(taskVal);
+			/*tasks.update((old) => [
+				...old,
+				{
+					id:old.length+1,
+					name:taskVal,
+					checked:false
+				}
+			]);*/
+			if($tasks?.find(
+				(v)=>v.name == taskVal
+			)){
+				toast.error('Task already exists');
+				return;
+			}
+			setTodo([
+				...$tasks,
+				{
+					id: $tasks.length + 1,
+					name: taskVal,
+					checked: false
+				}
+			]);
+			
 			toast.success('Add task success');
-			toast.warning('this function not avalible now');
+			taskVal = ""
 		} catch {
 			toast.error('Add task fail');
-			toast.warning('this function not avalible now');
 		}
 	};
 </script>
